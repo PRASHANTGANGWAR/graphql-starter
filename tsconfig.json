@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "CommonJS",
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "baseUrl": "./src",
+        "paths": {
+            "@/*": ["*"],
+            "@database/*": ["database/*"],
+            "@utils/*": ["utils/*"],
+            "@config/*": ["config/*"],
+            "@interface/*": ["interface/*"]
+        },
+        "outDir": "./dist",
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "strict": true
+    },
+    "include": ["src"],
+    "exclude": ["node_modules"]
+}
