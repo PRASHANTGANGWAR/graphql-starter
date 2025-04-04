@@ -1,3 +1,12 @@
-export const GenderOptions = ["male", "female", "other"];
+export enum Gender {
+  MALE = "male",
+  FEMALE = "female",
+  OTHER = "other"
+}
 
-export const Status = ["pending", "shipped", "delivered", "cancelled"];
+export enum OrderStatus {
+  PENDING = "pending",
+  SHIPPED = "shipped",
+  DELIVERED = "delivered",
+  CANCELLED = "cancelled"
+} 

@@ -6,7 +6,6 @@ function validateEnv() {
         LOG_FORMAT: str(),
         LOG_DIR: str(),
         ORIGIN: str(),
-        CREDENTIALS: bool(),
         MONGOURI: str()
     });
 }

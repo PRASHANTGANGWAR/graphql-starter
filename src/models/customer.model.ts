@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { Customer } from "@interface/customer.interface";
-import { GenderOptions } from "@utils/enums"
+import { Gender } from "@utils/enums"
 
 // Define Mongoose Schema
 const CustomerSchema: Schema = new Schema({
@@ -8,9 +8,9 @@ const CustomerSchema: Schema = new Schema({
     email: { type: String, required: true, unique: true },
     age: { type: Number, required: true },
     location: { type: String, required: true },
-    gender: { type: String, enum: GenderOptions, required: true },
+    gender: { type: String, enum: Gender, required: true },
 }, {
-    timestamps: true // Adds createdAt & updatedAt fields
+    timestamps: true
 });
 
 // Create Mongoose model

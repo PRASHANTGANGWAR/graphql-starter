@@ -1,3 +1,4 @@
+import { OrderStatus } from "@/utils/enums";
 import { Document } from "mongoose";
 
 export interface Product {
@@ -8,8 +9,8 @@ export interface Product {
 
 export interface Order extends Document {
     customerId: string;
-    products: Product[]; // Array of objects
+    products: Product[];
     totalAmount: number;
     orderDate: Date; 
-    status: "pending" | "shipped" | "delivered" | "cancelled";
+    status: OrderStatus;
 }

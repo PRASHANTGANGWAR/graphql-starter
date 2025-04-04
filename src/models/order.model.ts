@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { Order } from "@interface/order.interface";
-import { Status } from "@utils/enums"
+import { OrderStatus } from "@utils/enums"
 
 // Define Product Schema (Subdocument)
 const ProductSchema: Schema = new Schema({
@@ -12,7 +12,7 @@ const ProductSchema: Schema = new Schema({
 // Define Order Schema
 const OrderSchema: Schema = new Schema({
     customerId: {
-        type: mongoose.Schema.Types.ObjectId, // Store the ObjectId of the Customer
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Customers', // Reference the 'Customers' model
         required: true
     },
@@ -21,10 +21,10 @@ const OrderSchema: Schema = new Schema({
     orderDate: { type: Date, default: Date.now },
     status: {
         type: String,
-        enum: Status,
+        enum: OrderStatus,
         required: true
     }
-}, { timestamps: true }); // Adds createdAt & updatedAt
+}, { timestamps: true });
 
 // Create Mongoose model
 const OrderModel = mongoose.model<Order>("Orders", OrderSchema);
