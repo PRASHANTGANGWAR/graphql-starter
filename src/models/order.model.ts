@@ -6,13 +6,14 @@ import { OrderStatus } from "@utils/enums"
 const ProductSchema: Schema = new Schema({
     productId: { type: String, required: true },
     quantity: { type: Number, required: true },
-    price: { type: Number, required: true }
+    priceAtPurchase: { type: Number, required: true }
 });
 
 // Define Order Schema
 const OrderSchema: Schema = new Schema({
+    _id: { type: String, required: true },
     customerId: {
-        type: mongoose.Schema.Types.ObjectId,
+        type: String,
         ref: 'Customers', // Reference the 'Customers' model
         required: true
     },
@@ -24,7 +25,10 @@ const OrderSchema: Schema = new Schema({
         enum: OrderStatus,
         required: true
     }
-}, { timestamps: true });
+}, {
+    timestamps: true,
+    _id: false  // Disable automatic _id generation
+});
 
 // Create Mongoose model
 const OrderModel = mongoose.model<Order>("Orders", OrderSchema);

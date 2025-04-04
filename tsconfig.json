@@ -10,7 +10,10 @@
             "@database/*": ["database/*"],
             "@utils/*": ["utils/*"],
             "@config/*": ["config/*"],
-            "@interface/*": ["interface/*"]
+            "@interface/*": ["interface/*"],
+            "@models/*": ["models/*"],
+            "@graphql/*": ["graphql/*"],
+            "@resolvers/*": ["resolvers/*"]
         },
         "outDir": "./dist",
         "moduleResolution": "Node",

@@ -1,0 +1,69 @@
+# ========================
+# Custom Object Types
+# ========================
+
+type CustomerSpending {
+  customerId: ID!
+  totalSpent: Float!
+  averageOrderValue: Float!
+  lastOrderDate: String
+}
+
+type TopProduct {
+  productId: ID!
+  name: String!
+  totalSold: Int!
+}
+
+type CategoryBreakdown {
+  category: String!
+  revenue: Float!
+}
+
+type SalesAnalytics {
+  totalRevenue: Float!
+  completedOrders: Int!
+  categoryBreakdown: [CategoryBreakdown!]!
+}
+
+type Order {
+  _id: ID!
+  customerId: ID!
+  products: [OrderProduct!]!
+  totalAmount: Float!
+  orderDate: String!
+  status: String!
+}
+
+type OrderProduct {
+  productId: ID!
+  quantity: Int!
+  priceAtPurchase: Float!
+}
+
+type Product {
+  _id: ID!
+  name: String!
+  category: String!
+  price: Float!
+  stock: Int!
+}
+
+type Customer {
+  _id: ID!
+  name: String!
+  email: String!
+  age: Int!
+  location: String!
+  gender: String!
+}
+
+# ========================
+# Root Query
+# ========================
+
+type Query {
+  getCustomerSpending(customerId: ID!): CustomerSpending
+  getTopSellingProducts(limit: Int!): [TopProduct!]!
+  getSalesAnalytics(startDate: String!, endDate: String!): SalesAnalytics
+}

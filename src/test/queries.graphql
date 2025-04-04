@@ -1,0 +1,33 @@
+# Get customer spending analytics
+query GetCustomerSpending {
+  getCustomerSpending(customerId: "63f8b3d5a7b1d7f3b0a2c5e1") {
+    customerId
+    totalSpent
+    averageOrderValue
+    lastOrderDate
+  }
+}
+
+# Get top selling products
+query GetTopSellingProducts {
+  getTopSellingProducts(limit: 5) {
+    productId
+    name
+    totalSold
+  }
+}
+
+# Get sales analytics for a date range
+query GetSalesAnalytics{
+  getSalesAnalytics(
+    startDate: "2024-12-15T05:05:58.471+00:00"
+    endDate: "2025-01-01T05:05:58.471+00:00"
+  ) {
+    totalRevenue
+    completedOrders
+    categoryBreakdown {
+      category
+      revenue
+    }
+  }
+}
