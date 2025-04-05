@@ -8,9 +8,10 @@ export interface Product {
 }
 
 export interface Order extends Document {
+    _id: string;
     customerId: string;
     products: Product[];
     totalAmount: number;
-    orderDate: Date; 
+    orderDate: Date;
     status: OrderStatus;
 }

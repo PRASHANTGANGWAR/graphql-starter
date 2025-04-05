@@ -17,12 +17,12 @@ const OrderSchema: Schema = new Schema({
         ref: 'Customers', // Reference the 'Customers' model
         required: true
     },
-    products: { type: [ProductSchema], required: true },
+    products: { type: String, required: true },
     totalAmount: { type: Number, required: true },
     orderDate: { type: Date, default: Date.now },
     status: {
         type: String,
-        enum: OrderStatus,
+        enum: Object.values(OrderStatus),
         required: true
     }
 }, {
