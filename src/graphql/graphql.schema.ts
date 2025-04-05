@@ -57,6 +57,27 @@ const typeDefs = gql`
     quantity: Int!
     priceAtPurchase: Float!
   }
+
+ type OrderPagination {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  orders: [Order!]!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  currentPage: Int!
+  totalPages: Int!
+}
+
+type Query {
+  getCustomerOrders(
+    customerId: ID!
+    page: Int = 1
+    limit: Int = 10
+  ): OrderPagination!
+}
 `;
 
 export default typeDefs;

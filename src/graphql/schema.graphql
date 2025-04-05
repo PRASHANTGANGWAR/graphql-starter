@@ -67,3 +67,25 @@ type Query {
   getTopSellingProducts(limit: Int!): [TopProduct!]!
   getSalesAnalytics(startDate: String!, endDate: String!): SalesAnalytics
 }
+
+
+type OrderPagination {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  orders: [Order!]!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  currentPage: Int!
+  totalPages: Int!
+}
+
+type Query {
+  getCustomerOrders(
+    customerId: ID!
+    page: Int = 1
+    limit: Int = 10
+  ): OrderPagination
+}
